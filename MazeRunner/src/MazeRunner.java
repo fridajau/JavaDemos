@@ -61,7 +61,8 @@ public class MazeRunner {
             }
             //hitting a wall
             else {
-                if (MazeRunner.moves != 101) {
+                if ((myMap.canIMoveDown() == false && myMap.canIMoveUp() == false &&
+                        myMap.canIMoveLeft() == false && myMap.canIMoveRight() == false)) {
                     myMap.printMap();
                     System.out.println("Sorry, you've hit a wall.");
                     System.out.print("Where would you like to move? (R, L, U, D): ");
@@ -69,6 +70,7 @@ public class MazeRunner {
                     myMap.printMap();
                 }
             }
+
         }
         return direction;
     }
