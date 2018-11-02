@@ -11,7 +11,6 @@ public class MazeRunner {
     //crete a new maze
     static Maze myMap = new Maze();
     static Scanner input = new Scanner(System.in);
-    //static int steps = 0;
     static int moves = 0;
 
 
