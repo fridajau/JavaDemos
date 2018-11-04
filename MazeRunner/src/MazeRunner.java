@@ -59,18 +59,27 @@ public class MazeRunner {
                 myMap.printMap();
             }
             //hitting a wall
-            else {
-                if ((myMap.canIMoveDown() == false && myMap.canIMoveUp() == false &&
-                        myMap.canIMoveLeft() == false && myMap.canIMoveRight() == false)) {
-                    myMap.printMap();
-                    System.out.println("Sorry, you've hit a wall.");
-                    System.out.print("Where would you like to move? (R, L, U, D): ");
-                    direction = input.next();
-                    myMap.printMap();
-                }
+            else if (myMap.canIMoveDown() == false && direction.equals("D")) {
+                navigatePit("D");
+                myMap.printMap();
+            }
+            else if (myMap.canIMoveUp() == false && direction.equals("U")) {
+                navigatePit("U");
+                myMap.printMap();
+            }
+            else if (myMap.canIMoveRight() == false && direction.equals("R")) {
+                navigatePit("R");
+                myMap.printMap();
+            }
+            else if (myMap.canIMoveLeft() == false && direction.equals("D")) {
+                navigatePit("L");
+                myMap.printMap();
             }
 
         }
+        movesMessage(moves);
+        if (moves == 100)
+            System.out.println("Sorry, but you didn't escape in time- you lose!");
         return direction;
     }
 
